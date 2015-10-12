@@ -8,7 +8,7 @@ lon="77.1000W"
 /home/pi/chicken_coop/sunwait08/sunwait/0.8/sunwait wait down offset 0:30:00 $lat $lon
 
 sudo python /home/pi/chicken_coop/relay_4port/close_in1.py
-echo $'\n'"`date`" " -- Closed the door (should be 30 minutes after Sunset" >> /home/pi/chicken_coop/check_door.log
+echo $'\n'"`date`" " -- Fermez la porte (30 minutes after Sunset)" >> /home/pi/chicken_coop/check_door.log
 
 mail -s "Door has been closed" bertman30@msn.com < /home/pi/chicken_coop/check_door.log
 
