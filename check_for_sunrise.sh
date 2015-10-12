@@ -3,10 +3,10 @@
 #Eganville
 lat="45.5333N"
 lon="77.1000W"
-sunrise_time=$(/home/pi/chicken_coop/sunwait08/sunwait/0.8/sunwait list 45.5333N 77.1000W | awk 'BEGIN {FS=",";} { print $1; }' )
+sunrise_time=$(/home/pi/chicken_coop/sunwait08/sunwait/0.8/sunwait list $lat $lon | awk 'BEGIN {FS=",";} { print $1; }' )
 
 #Wait for the sunrise, then open the door 30 minutes after sunrise
-echo $'\n'"`date`" " -- Waiting for sunrise at " $sunrise_time >> /home/pi/chicken_coop/check_door.log
+echo $'\n'"`date`" " -- Waited for sunrise starting at " $sunrise_time >> /home/pi/chicken_coop/check_door.log
 
 /home/pi/chicken_coop/sunwait08/sunwait/0.8/sunwait wait rise offset 0:30:00 $lat $lon
 
