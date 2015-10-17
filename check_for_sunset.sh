@@ -1,6 +1,6 @@
 #!/bin/bash
 
-log_file = "/home/pi/chicken_coop/check_door.log"
+log_file="/home/pi/chicken_coop/check_door.log"
 
 #Eganville
 lat="45.5333N"

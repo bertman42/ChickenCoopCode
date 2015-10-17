@@ -6,7 +6,7 @@ GPIO.setmode(GPIO.BCM)
 
 # init list with pin numbers
 
-pinList = [2]
+pinList = [11]
 
 # loop through pins and set mode and state to 'high'
 
@@ -18,7 +18,7 @@ for i in pinList:
 # main loop
 
 try:
-  GPIO.output(2, GPIO.LOW)
+  GPIO.output(11, GPIO.LOW)
   print "ON"
 
 
