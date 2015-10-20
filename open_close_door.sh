@@ -8,6 +8,7 @@ lon="77.1000W"
 sunrise_time=$(/home/pi/chicken_coop/sunwait08/sunwait/0.8/sunwait list $lat $lon | awk 'BEGIN {FS=",";} { print $1; }' )
 sunset_time=$(/home/pi/chicken_coop/sunwait08/sunwait/0.8/sunwait list $lat $lon | awk 'BEGIN {FS=",";} { print $2; }' )
 current_time=(date | awk '{ print $4; }' | awk 'BEGIN {FS=":";} { print $1; }')
+
 if [current_time < 12]
   then
 
