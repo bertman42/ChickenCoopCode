@@ -2,23 +2,32 @@
 import RPi.GPIO as GPIO
 import time
 
-GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
 
-GPIO.setup(23, GPIO.OUT)
+# init list with pin numbers
 
-#try:
-#  if GPIO.output(5) == True:
-#	GPIO.output(5, GPIO.HIGH)
-#  else:
-#	GPIO.output(5, GPIO.LOW)
-#  print "ON"
+pinList = [7]
+
+# loop through pins and set mode and state to 'high'
+
+for i in pinList: 
+    GPIO.setup(i, GPIO.OUT) 
+#    GPIO.output(i, GPIO.HIGH)
+
+
+# main loop
+
+try:
+  GPIO.output(7, GPIO.LOW)
+  print "ON"
 
 
 
 # End program cleanly with keyboard
-#except KeyboardInterrupt:
-#  print "  Quit"
+except KeyboardInterrupt:
+  print "  Quit"
 
   # Reset GPIO settings
-GPIO.cleanup()
+  GPIO.cleanup()
 
