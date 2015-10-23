@@ -8,7 +8,7 @@ lon="77.1000W"
 sunrise_time=$(/home/pi/chicken_coop/sunwait08/sunwait/0.8/sunwait list $lat $lon | awk 'BEGIN {FS=",";} { print $1; }' )
 
 #Wait for the sunrise, then open the door 30 minutes after sunrise
-echo "`date '+%m/%d/%y @ %H:%M:%S'`" " - Sunrise today was: " $sunrise_time | cat - $log_file > temp && mv temp $log_file
+echo "`date '+%m/%d/%y @ %H:%M:%S'`" " - Sunrise today: " $sunrise_time | cat - $log_file > temp && mv temp $log_file
 
 /home/pi/chicken_coop/sunwait08/sunwait/0.8/sunwait wait rise offset 0:30:00 $lat $lon
 

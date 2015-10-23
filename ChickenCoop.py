@@ -18,11 +18,14 @@ GPIO.setup(7, GPIO.OUT)
 #Setup logging
 LOG_FILENAME="/home/pi/chicken_coop/chicken_coop_door.log"
 my_logger = logging.getLogger('MyLogger')
+
 handler = logging.handlers.RotatingFileHandler(
 		LOG_FILENAME, maxBytes=80, backupCount=5)
 my_logger.addHandler(handler)
 
 formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+
+my_logger.setLevel(logging.INFO)
 
 #Setup LAT and LON for Eganville
 lat = "45.5333N"
@@ -33,7 +36,7 @@ sunrise_time = sunwait_time.split(",")[0].strip()
 sunset_time = sunwait_time.split(",")[1].strip()
 print "Sunrise time:", sunrise_time
 print "Sunset time:", sunset_time
-my_logger.debug("Sunset is set to", sunset_time)
+my_logger.info("Sunset is set to", sunset_time)
 
 current_time =  subprocess.Popen(['date'], stdout=subprocess.PIPE).stdout.read()
 current_time = current_time.split(" ")[3].strip()
